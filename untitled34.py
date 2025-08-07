@@ -75,12 +75,12 @@ if submitted:
         out1, out2, out3 = format_outputs(business, patterns)
 
         st.markdown("---")
-        st.subheader("📌 Output 1: Name + Original Number")
+        # st.subheader("📌 Output 1: Name + Original Number")
         st.code(out1)
 
-        st.subheader("📌 Output 2: Name + 3 Combinations (OR)")
+        #st.subheader("📌 Output 2: Name + 3 Combinations (OR)")
         st.code(out2)
 
-        st.subheader("📌 Output 3: Name + 6 Combinations (OR)")
+     #st.subheader("📌 Output 3: Name + 6 Combinations (OR)")
         st.code(out3)
 
