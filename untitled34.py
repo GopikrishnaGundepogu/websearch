@@ -3,6 +3,47 @@
 
 import re
 import urllib.parse
+import streamlit as st
+
+# ✅ Must be first Streamlit command
+st.set_page_config(page_title="Web Search Pattern Generator", layout="centered")
+
+def clean_number_patterns(phone):
+    original = phone.strip()
+
+    # Remove all non-digit characters except "+"
+    only_digits_plus = re.sub(r"[^\d+]", "", original)
+
+    # Extract country code (up to 4 digits after "+")
+    match = re.match(r"^\+?(\d{1,4})([\d\s\-]+)", original)
+    if match:
+        cc = match.group(1)
+        rest = match.group(2)
+    else:
+        cc = ""
+        rest = re.sub(r"[^\d]", "", original)
+
+    # Pattern 1: original
+    pattern1 = original
+
+    # Pattern 2: remove country code, keep original formatting
+    pattern2 = re.sub(rf"^\+?{cc}\s*", "", original)
+
+    # Pattern 3: 0 + pattern 2
+    pattern3 = "0" + pattern2
+
+    # Pattern 4: remove space/hyphen from pattern 2
+    pattern4 = re.sub(r"[\s\-]", "", pattern2)
+
+    # Pattern 5: remove space/hyphen from original
+    pattern5 = re.sub(r"[\s\-]", "", original)
+
+    # Pattern 6: 0 + pattern 4
+    pattern6 = "0" + pattern4
+
+    return [pattern1, pattern2, pattern3, pattern4, pattern5, pattern6]
+
+
 def generate_google_links(phone):
     """Generate dashboards, supermario, and biztools links for a phone number."""
     # Digits only (no +, no spaces, no dashes)
@@ -40,7 +81,6 @@ def format_outputs(business, patterns, phone):
 
 
 # Streamlit UI
-st.set_page_config(page_title="Web Search Pattern Generator", layout="centered")
 st.title("🌐 Web Search + Google Tools Links")
 
 with st.form("pattern_form"):
@@ -63,6 +103,6 @@ if submitted:
 
         st.markdown("---")
         st.subheader("📌 Google Tools Links")
-        st.markdown(f"**Dashboards:** {dashboards}")
-        st.markdown(f"**SuperMario:** {supermario}")
-        st.markdown(f"**BizTools:** {biztools}")
+        st.markdown(f"[Dashboards]({dashboards})")
+        st.markdown(f"[SuperMario]({supermario})")
+        st.markdown(f"[BizTools]({biztools})")
