@@ -106,6 +106,6 @@ if submitted:
 
         st.markdown("---")
         st.subheader("📌 Phone Abuse Check Links")
-        st.markdown(f"[GAP Dashboards]({dashboards})")
+        st.markdown(f"[GAP Dashboard]({dashboards})")
         st.markdown(f"[SuperMario AVD]({supermario})")
         st.markdown(f"[BB Admin]({biztools})")
