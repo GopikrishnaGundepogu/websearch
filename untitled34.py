@@ -79,13 +79,13 @@ def format_outputs(business, patterns, phone):
 
     return out1, out2, out3, dashboards, supermario, biztools
 
-
 # Streamlit UI
-st.title("🌐 Web Search + Phone abuse Tools Links")
+st.title("🌐 Web Search + Phone Abuse Tools Links")
 
-st.warning("⚠️Caution: This website does not have approval from management."
- "If anyone is caught by management, I will not be responsible. Try at your own risk.
-")
+# ✅ Fixed caution message
+st.warning("⚠️ Caution: This website does not have approval from management. "
+           "If anyone is caught by management, I will not be responsible. Try at your own risk.")
+
 with st.form("pattern_form"):
     business = st.text_input("Enter Name")
     phone = st.text_input("Enter Phone Number (e.g., +91 72870-62455)")
