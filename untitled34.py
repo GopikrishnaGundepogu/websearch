@@ -105,7 +105,7 @@ if submitted:
         st.code(out3)
 
         st.markdown("---")
-        st.subheader("📌 Google Tools Links")
+        st.subheader("📌 Phone Abuse Check Links")
         st.markdown(f"[GAP Dashboards]({dashboards})")
         st.markdown(f"[SuperMario AVD]({supermario})")
         st.markdown(f"[BB Admin]({biztools})")
