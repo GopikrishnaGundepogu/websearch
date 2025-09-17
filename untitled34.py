@@ -82,7 +82,9 @@ def format_outputs(business, patterns, phone):
 
 # Streamlit UI
 st.title("🌐 Web Search + Phone abuse Tools Links")
-st.title("Caution: This website does not have approval from management. If anyone is caught by management, I will not be responsible. Try at your own risk.
+
+st.warning("⚠️Caution: This website does not have approval from management."
+ "If anyone is caught by management, I will not be responsible. Try at your own risk.
 ")
 with st.form("pattern_form"):
     business = st.text_input("Enter Name")
